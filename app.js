@@ -1,6 +1,7 @@
 require("express-async-errors");
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const mongoose = require("mongoose");
 const errorHandler = require("./handlers/errorHandler");
 const usersRoutes = require("./modules/users/users.routes");
@@ -10,9 +11,10 @@ const tasksRoutes = require("./modules/tasks/tasks.routes");
 require("dotenv").config();
 const app = express();
 app.use(cors());
+//app.use(bodyParser.json());
+app.use(express.static('Task-Manager'));
 
-
-
+app.use(express.static(path.join(__dirname, '../Task-Manager')));
 
 mongoose.connect(process.env.mongo_connect, {}).then(
         ()=> console.log("Database Connected")
@@ -20,6 +22,7 @@ mongoose.connect(process.env.mongo_connect, {}).then(
 
 
 app.use(express.json());
+
 
 
 require("./models/users.model");

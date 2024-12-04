@@ -14,9 +14,9 @@ const register = async(request, response)=>
 
         if(!username) throw "Username is Required";
         if(!email) throw "Email is Required";
-         if(!password) throw " Password is Required";
-         if(password.length < 5) throw "Password Should be at least 5 caharacter long";
-         if (confirm_password !== password) throw "Password Does Not Match"
+        if(!password) throw " Password is Required";
+        if(password.length < 5) throw "Password Should be at least 5 caharacter long";
+        if(confirm_password !== password) throw "Password Does Not Match"
 
 
          const duplicateEmail = await userModel.findOne(

@@ -14,11 +14,11 @@ const deleteTask = async(request, response) =>
             if(!getTasks) throw " Task Not Found"
 
 
-
+        await taskModel.deleteOne(getTasks);
 
             response.status(200).json(
                 {
-                    status: "Sucessfull",
+                    status: "Sucessful",
                     message: "Task Deleted Successfully"
                 })
     }
