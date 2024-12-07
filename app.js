@@ -28,7 +28,9 @@ app.use(express.json());
 require("./models/users.model");
 require("./models/tasks.model");
 
-
+app.use("/", function (){
+    const message = "Welcome To Taskmanager Homepage"
+} )
 app.use("/api/users/", usersRoutes);
 app.use("/api/tasks", tasksRoutes);
 
